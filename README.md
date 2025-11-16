@@ -30,10 +30,8 @@ com.bmi.utils
 ## Cara Menjalankan Aplikasi
 
 1. Pastikan Java dan JavaFX SDK telah terpasang di sistem Anda.
-2. Compile seluruh kode sumber di folder `com.bmi`.
-3. Jalankan kelas `Main` untuk memulai aplikasi.
-4. Masukkan berat badan (kg) dan tinggi badan (m).
-5. Klik tombol **Calculate BMI** untuk melihat hasil BMI dan status kategori berat badan.
+2. Buka folder `bmi-calculator` di terminal.
+3. Jalankan perintah `mvn javafx:run@bmi` untuk menjalankan aplikasi.
 
 ---
 
