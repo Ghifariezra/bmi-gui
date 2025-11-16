@@ -17,12 +17,15 @@ public class BMICalculatorView {
         root.setAlignment(Pos.TOP_CENTER);
 
         Label weightLabel = new Label("Weight (kg):");
-        Label heightLabel = new Label("Height (m):");
+        Label heightLabel = new Label("Height (cm):");
         Label resultLabel = new Label();
         Label statusLabel = new Label();
         TextField weightField = new TextField();
         TextField heightField = new TextField();
         Button calculateButton = new Button("Calculate BMI");
+
+        weightField.setPromptText("Enter weight in kilograms");
+        heightField.setPromptText("Enter height in centimeters");
 
         calculateButton.setOnAction(e -> {
             String weight = weightField.getText();
