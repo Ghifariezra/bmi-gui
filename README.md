@@ -31,7 +31,8 @@ com.bmi.utils
 
 1. Pastikan Java dan JavaFX SDK telah terpasang di sistem Anda.
 2. Buka folder `bmi-calculator` di terminal.
-3. Jalankan perintah `mvn javafx:run@bmi` untuk menjalankan aplikasi.
+3. Jalankan perintah `mvn clean package` untuk kompilasi proyek.
+4. Jalankan perintah `mvn javafx:run@bmi` untuk menjalankan aplikasi.
 
 ---
 
@@ -92,3 +93,35 @@ Kategori BMI:
 ### `InnerPerson.java`
 
 -   Interface yang mendefinisikan kontrak kelas Person.
+
+---
+
+## Deployment Aplikasi
+1. Pastikan JavaFX SDK & JMods telah terpasang di sistem Anda.  
+   Jika belum ada, bisa download dari:
+
+    - [JavaFX SDK & JMods (Gluon)](https://gluonhq.com/products/javafx/)
+
+2. Buat folder `launch-app`.
+
+3. Jalankan perintah ini untuk membuat runtime JavaFX custom:
+
+    ```bash
+    jlink --module-path "D:\Program Files\JavaFx\JavaFx-21-JMods;D:\Program Files\JavaFx\JavaFx-21-SDK\lib" \
+          --add-modules java.base,javafx.controls,javafx.fxml,javafx.graphics,javafx.web,javafx.media,javafx.swing \
+          --output runtime
+    ```
+
+4. Jalankan perintah ini untuk membuat aplikasi exe:
+    ```bash
+     jpackage --input target \
+          --name Bmi-Calculator \
+          --main-jar bmi-calculator-1.0.jar \
+          --main-class com.bmi.Main \
+          --type exe \
+          --icon .\src\main\resources\icon\bmi.ico \
+          --runtime-image runtime \
+          --win-shortcut \
+          --win-menu \
+          --dest .\launch-app\
+    ```
