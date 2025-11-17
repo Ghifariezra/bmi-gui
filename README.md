@@ -1,59 +1,59 @@
 # BMI Calculator - JavaFX GUI Application
 
 <div style="text-align: center;">
-    <img src="public/bmi-ui.png" alt="Screenshot Aplikasi BMI Calculator" width="300">
+    <img src="public/bmi-ui.png" alt="BMI Calculator Application Screenshot" width="300">
 </div>
 
-## Deskripsi
+## Description
 
-Aplikasi BMI Calculator berbasis JavaFX yang sederhana untuk menghitung Body Mass Index (BMI) berdasarkan berat badan dan tinggi badan pengguna. Aplikasi ini menampilkan hasil BMI beserta status kategori berat badan (Underweight, Normal weight, Overweight, Obesity) dengan tampilan GUI yang responsif dan mudah digunakan.
+A simple JavaFX-based BMI Calculator application to calculate the Body Mass Index (BMI) based on the user's weight and height. The application displays the BMI result along with the weight category status (Underweight, Normal weight, Overweight, Obesity) with a responsive and user-friendly GUI.
 
 ---
 
-## Struktur Proyek
+## Project Structure
 
 ```bash
 com.bmi
-├── Main.java # Entry point aplikasi, setup stage dan scene
-├── BMICalculatorView.java # UI layout dan logika input/output BMI
-├── Person.java # Model data Person dengan logika perhitungan BMI
+├── Main.java           # Application entry point, setup stage and scene
+├── BMICalculatorView.java # UI layout and BMI input/output logic
+├── Person.java         # Person data model with BMI calculation logic
 └── contracts
-└── InnerPerson.java # Interface kontrak untuk kelas Person
+    └── InnerPerson.java # Interface contract for the Person class
 
 com.bmi.utils
-├── IconLoader.java # Utility untuk memuat ikon aplikasi
-└── RootBackground.java # Utility untuk mengatur background root layout
+├── IconLoader.java     # Utility to load application icons
+└── RootBackground.java # Utility to set background for root layout
 ```
 
 ---
 
-## Cara Menjalankan Aplikasi
+## How to Run the Application
 
-1. Pastikan Java dan JavaFX SDK telah terpasang di sistem Anda.
-2. Buka folder `bmi-calculator` di terminal.
-3. Jalankan perintah `mvn clean package` untuk kompilasi proyek.
-4. Jalankan perintah `mvn javafx:run@bmi` untuk menjalankan aplikasi.
-
----
-
-## Cara Menggunakan
-
--   Masukkan berat badan dalam kilogram pada kolom "Weight (kg)".
--   Masukkan tinggi badan dalam meter pada kolom "Height (m)".
-    > Jika memasukkan nilai lebih dari 10 (misal 170), aplikasi akan otomatis mengonversi ke meter (1.70).
--   Klik tombol **Calculate BMI**.
--   Hasil BMI dan status berat badan akan muncul di bagian bawah.
--   Jika input tidak valid, akan muncul dialog error.
+-   Make sure Java and JavaFX SDK are installed on your system.
+-   Open the bmi-calculator folder in the terminal.
+-   Run the command mvn clean package to compile the project.
+-   Run the command mvn javafx:run@bmi to launch the application.
 
 ---
 
-## Logika Perhitungan BMI
+## How to Use
 
-Rumus BMI:
+-   Enter your weight in kilograms in the "Weight (kg)" field.
+-   Enter your height in meters in the "Height (m)" field.
+    > If the value entered is greater than 10 (e.g., 170), the app will automatically convert it to meters (1.70).
+-   Click the Calculate BMI button.
+-   The BMI result and weight category will appear below.
+    If the input is invalid, an error dialog will be shown.
 
-> BMI = berat (kg) / (tinggi (m) × tinggi (m))
+---
 
-Kategori BMI:
+## BMI Calculation Logic
+
+BMI formula:
+
+> BMI = weight (kg) / (height (m) × height (m))
+
+BMI Categories:
 
 -   `Underweight`: BMI < 18.5
 -   `Normal weight`: 18.5 ≤ BMI < 24.9
@@ -62,66 +62,65 @@ Kategori BMI:
 
 ---
 
-## Penjelasan Kelas Utama
+## Explanation of Main Classes
 
 ### `Main.java`
 
--   Memulai aplikasi JavaFX.
--   Menyiapkan scene dan stage.
--   Menggunakan `BMICalculatorView` sebagai root UI.
+-   Starts the JavaFX application.
+-   Sets up the scene and stage.
+-   Uses BMICalculatorView as the root UI.
 
 ### `BMICalculatorView.java`
 
--   Mengatur UI menggunakan `VBox`.
--   Memuat label, input fields, tombol kalkulasi, dan label hasil.
--   Menangani event klik tombol, validasi input, dan menampilkan hasil BMI dan status.
--   Memberikan feedback warna sesuai status BMI.
+-   Manages the UI using a VBox.
+-   Contains labels, input fields, calculate button, and result label.
+-   Handles button click events, input validation, and displays BMI and category.
+-   Provides color feedback based on BMI status.
 
 ### `Person.java`
 
--   Model data dengan properti berat dan tinggi.
--   Mengimplementasikan logika perhitungan BMI dan penentuan status berat badan.
+-   Data model with weight and height properties.
+-   Implements BMI calculation and weight status determination logic.
 
 ### `IconLoader.java`
 
--   Memuat ikon aplikasi dari resources.
+-   Loads application icon from resources.
 
 ### `RootBackground.java`
 
--   Memberikan latar belakang putih untuk root layout.
+-   Provides a white background for the root layout.
 
 ### `InnerPerson.java`
 
--   Interface yang mendefinisikan kontrak kelas Person.
+-   Interface defining the contract for the Person class.
 
 ---
 
-## Deployment Aplikasi
-1. Pastikan JavaFX SDK & JMods telah terpasang di sistem Anda.  
-   Jika belum ada, bisa download dari:
+## Application Deployment
 
+1. Make sure JavaFX SDK & JMods are installed on your system.
+    
+    If not, you can download them from:
     - [JavaFX SDK & JMods (Gluon)](https://gluonhq.com/products/javafx/)
 
-2. Buat folder `launch-app`.
+2. Create a folder named launch-app.
 
-3. Jalankan perintah ini untuk membuat runtime JavaFX custom:
-
+3. Run this command to create a custom JavaFX runtime image:
     ```bash
     jlink --module-path "D:\Program Files\JavaFx\JavaFx-21-JMods;D:\Program Files\JavaFx\JavaFx-21-SDK\lib" \
-          --add-modules java.base,javafx.controls,javafx.fxml,javafx.graphics,javafx.web,javafx.media,javafx.swing \
-          --output runtime
+        --add-modules java.base,javafx.controls,javafx.fxml,javafx.graphics,javafx.web,javafx.media,javafx.swing \
+        --output runtime
     ```
-
-4. Jalankan perintah ini untuk membuat aplikasi exe:
+4. Run this command to create the executable application:
     ```bash
-     jpackage --input target \
-          --name Bmi-Calculator \
-          --main-jar bmi-calculator-1.0.jar \
-          --main-class com.bmi.Main \
-          --type exe \
-          --icon .\src\main\resources\icon\bmi.ico \
-          --runtime-image runtime \
-          --win-shortcut \
-          --win-menu \
-          --dest .\launch-app\
+    jpackage --input target \
+            --name Bmi-Calculator \
+            --main-jar bmi-calculator-1.0.jar \
+            --main-class com.bmi.Main \
+            --type exe \
+            --icon .\src\main\resources\icon\bmi.ico \
+            --runtime-image runtime \
+            --win-shortcut \
+            --win-menu \
+            --dest .\launch-app\
     ```
