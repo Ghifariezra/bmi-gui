@@ -3,7 +3,7 @@ package com.bmi.utils;
 import javafx.scene.image.Image;
 
 public class IconLoader {
-    private static final String ICON_PATH = "/icon/bmi-icon.png";
+    private static final String ICON_PATH = "/bmi.png";
 
     private IconLoader() {}
 

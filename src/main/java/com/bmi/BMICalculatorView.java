@@ -48,7 +48,7 @@ public class BMICalculatorView {
                 double bmi = person.calculateBMI();
                 String status = person.checkBMIStatus();
 
-                System.out.println("Calculated BMI: " + bmi);
+                // System.out.println("Calculated BMI: " + bmi);
                 String backgroundColorStatus = "-fx-background-color: " + colorStatus(status) + ";";
 
                 statusLabel.setStyle(
